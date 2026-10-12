@@ -30,6 +30,6 @@ def path_type(path: Path, follow_symlinks: bool) -> str:
             return "dir"
         if stat.S_ISLNK(mode):
             return "symlink"
-        return "file"  # noqa: TRY300
+        return "file"
     except FileNotFoundError:
         return "unknown"

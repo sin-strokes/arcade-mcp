@@ -48,6 +48,7 @@ from arcade_mcp_server.auth import GitHub
 
 app = MCPApp(name="gh", version="1.0.0")
 
+
 @app.tool(requires_auth=GitHub(scopes=["repo"]))
 async def list_my_repos(context: Context) -> list[str]:
     """List the authenticated user's GitHub repositories."""
@@ -88,10 +89,12 @@ from arcade_mcp_server import MCPApp
 
 app = MCPApp(name="my_server", version="1.0.0")
 
+
 @app.tool
 def greet(name: Annotated[str, "Name to greet"]) -> str:
     """Greet a person by name."""
     return f"Hello, {name}!"
+
 
 if __name__ == "__main__":
     app.run(transport="stdio")

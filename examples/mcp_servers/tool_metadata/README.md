@@ -17,7 +17,7 @@ Tool metadata provides structured information about what a tool does:
 Describes *what type of service* the tool interfaces with.
 
 ```python
-classification=Classification(
+classification = Classification(
     service_domains=[ServiceDomain.EMAIL],  # What type of service?
 )
 ```
@@ -31,12 +31,12 @@ For tools with no external service (`open_world=False`), classification is `None
 Describes the tool's *effects* and maps to MCP annotations.
 
 ```python
-behavior=Behavior(
+behavior = Behavior(
     operations=[Operation.CREATE],  # What effect? READ, CREATE, UPDATE, DELETE, OPAQUE
-    read_only=False,                # Does it only read data?
-    destructive=False,              # Can it cause irreversible data loss?
-    idempotent=True,                # Are repeated calls safe?
-    open_world=False,               # Does it interact with external systems?
+    read_only=False,  # Does it only read data?
+    destructive=False,  # Can it cause irreversible data loss?
+    idempotent=True,  # Are repeated calls safe?
+    open_world=False,  # Does it interact with external systems?
 )
 ```
 
@@ -47,7 +47,7 @@ These values become MCP `annotations` that clients like Claude can use to make i
 Arbitrary key/values for custom logic that *don't* affect tool selection.
 
 ```python
-extras={
+extras = {
     "billing_tier": "free",
     "max_requests_per_minute": 100,
     "data_classification": "internal",

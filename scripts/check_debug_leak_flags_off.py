@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# ruff: noqa: S603, S607
+# ruff: noqa: S607
 #
 # This script shells out to `git` via PATH on purpose: it runs inside
 # pre-commit and GitHub Actions, both of which guarantee git on PATH, and

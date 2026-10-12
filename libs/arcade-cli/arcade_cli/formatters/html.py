@@ -545,7 +545,8 @@ class HtmlFormatter(EvalResultFormatter):
     def _escape_html(self, text: str) -> str:
         """Escape HTML special characters."""
         return (
-            text.replace("&", "&amp;")
+            text
+            .replace("&", "&amp;")
             .replace("<", "&lt;")
             .replace(">", "&gt;")
             .replace('"', "&quot;")
@@ -2553,8 +2554,8 @@ class CaptureHtmlFormatter(CaptureFormatter):
                             )
                         tool_calls_html.append(
                             f'<details class="capture-run" open>'
-                            f'<summary>Run {run_index}</summary>'
-                            f'{"".join(run_calls_html)}'
+                            f"<summary>Run {run_index}</summary>"
+                            f"{''.join(run_calls_html)}"
                             f"</details>"
                         )
                 else:
@@ -2628,7 +2629,8 @@ class CaptureHtmlFormatter(CaptureFormatter):
     def _escape_html(self, text: str) -> str:
         """Escape HTML special characters."""
         return (
-            text.replace("&", "&amp;")
+            text
+            .replace("&", "&amp;")
             .replace("<", "&lt;")
             .replace(">", "&gt;")
             .replace('"', "&quot;")

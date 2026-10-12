@@ -21,7 +21,7 @@ import sys
 from collections import Counter
 from datetime import datetime
 from statistics import mean, median
-from typing import Annotated, Optional
+from typing import Annotated
 from urllib.parse import urlparse
 
 from arcade_mcp_server import MCPApp
@@ -152,7 +152,7 @@ class TeamInfo(TypedDict):
     """
 
     team_name: str
-    lead: Optional[TeamMember]
+    lead: TeamMember | None
 
 
 # ---------------------------------------------------------------------------

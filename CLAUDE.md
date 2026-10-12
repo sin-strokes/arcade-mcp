@@ -52,11 +52,13 @@ from arcade_mcp_server import MCPApp, Context, tool
 
 app = MCPApp(name="my_server", version="1.0.0")
 
+
 @app.tool
 async def greet(context: Context, name: Annotated[str, "Name to greet"]) -> str:
     """Greet a person."""
     await context.log.info(f"Greeting {name}")
     return f"Hello, {name}!"
+
 
 if __name__ == "__main__":
     app.run(transport="stdio")  # or "http" with host/port
@@ -199,13 +201,15 @@ from arcade_mcp_server.resource_server import ResourceServerAuth, AuthorizationS
 
 auth = ResourceServerAuth(
     canonical_url="https://mcp.example.com/mcp",
-    authorization_servers=[AuthorizationServerEntry(
-        authorization_server_url="https://auth.example.com",
-        issuer="https://auth.example.com",
-        jwks_uri="https://auth.example.com/.well-known/jwks.json",
-        algorithm="RS256",
-        expected_audiences=["client-id"],
-    )]
+    authorization_servers=[
+        AuthorizationServerEntry(
+            authorization_server_url="https://auth.example.com",
+            issuer="https://auth.example.com",
+            jwks_uri="https://auth.example.com/.well-known/jwks.json",
+            algorithm="RS256",
+            expected_audiences=["client-id"],
+        )
+    ],
 )
 app = MCPApp(name="protected", auth=auth)
 ```

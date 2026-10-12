@@ -155,7 +155,13 @@ The `ResourceServerAuth` class is designed to be subclassed for vendor-specific 
 ```python
 # Your vendor-specific implementations
 class ArcadeResourceServerAuth(ResourceServerAuth): ...
+
+
 class WorkOSResourceServerAuth(ResourceServerAuth): ...
+
+
 class Auth0ResourceServerAuth(ResourceServerAuth): ...
+
+
 class DescopeResourceServerAuth(ResourceServerAuth): ...
 ```

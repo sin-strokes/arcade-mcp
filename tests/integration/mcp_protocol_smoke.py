@@ -514,9 +514,9 @@ def run_http(server_dir: str, timeout: float) -> None:
         init_status, init_hdrs, last_response = _http_post(
             mcp_url, init_req, read_response_headers=True, timeout_seconds=timeout
         )
-        assert (
-            init_status == 200
-        ), f"[{step}] expected status 200, got {init_status}: {last_response}"
+        assert init_status == 200, (
+            f"[{step}] expected status 200, got {init_status}: {last_response}"
+        )
         assert last_response.get("jsonrpc") == "2.0", f"[{step}] jsonrpc != '2.0': {last_response}"
         assert last_response.get("id") == 1, f"[{step}] id != 1: {last_response}"
         assert "error" not in last_response, f"[{step}] error in response: {last_response}"

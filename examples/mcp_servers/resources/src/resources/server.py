@@ -20,11 +20,12 @@ Comprehensive showcase of MCP resource features in arcade-mcp-server:
 import asyncio
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Annotated
 
 from arcade_mcp_server import Annotations, MCPApp
+
 from resources.data import KB_ARTICLES, KB_CATEGORIES, TEAMS
 from resources.schemas import ArticleDetail, Author, SearchMatch, SearchResult
 
@@ -232,7 +233,7 @@ async def server_status(uri: str) -> dict:
     status = {
         "healthy": True,
         "article_count": len(KB_ARTICLES),
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "timestamp": datetime.now(UTC).isoformat(),
     }
     return {"text": json.dumps(status, indent=2)}
 

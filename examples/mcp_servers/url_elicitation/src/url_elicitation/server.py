@@ -65,7 +65,7 @@ _SUCCESS_HTML = "<!doctype html><html><body><h1>Thanks — you can close this ta
 
 
 class _CompanionHandler(BaseHTTPRequestHandler):
-    def do_GET(self) -> None:  # noqa: N802
+    def do_GET(self) -> None:
         if self.path.startswith("/verify/"):
             elicit_id = self.path.removeprefix("/verify/")
             user = "the user"
@@ -89,7 +89,7 @@ class _CompanionHandler(BaseHTTPRequestHandler):
         self.send_response(404)
         self.end_headers()
 
-    def do_POST(self) -> None:  # noqa: N802
+    def do_POST(self) -> None:
         if self.path.startswith("/verify/"):
             elicit_id = self.path.removeprefix("/verify/")
             length = int(self.headers.get("Content-Length", "0"))
@@ -105,7 +105,7 @@ class _CompanionHandler(BaseHTTPRequestHandler):
         self.send_response(404)
         self.end_headers()
 
-    def log_message(self, format: str, *args: object) -> None:  # noqa: A002, D401
+    def log_message(self, format: str, *args: object) -> None:
         # Silence default stderr logging to keep stdio transport clean.
         return
 
@@ -222,7 +222,7 @@ async def verify_identity(
         try:
             companion_answer = await asyncio.wait_for(_completions[elicit_id], timeout=1.0)
             await context.log.info(f"Companion webapp saw answer={companion_answer!r}")
-        except asyncio.TimeoutError:
+        except TimeoutError:
             await context.log.warning(
                 "Companion webapp did not report a button click — the client may have "
                 "rendered its own verification UI without hitting our URL."
