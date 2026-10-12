@@ -249,7 +249,7 @@ def _run_scaffold_and_protocol_smoke(repo_root: Path) -> None:
         new_output = (created.stdout or "") + "\n" + (created.stderr or "")
         if "Next steps:" not in new_output:
             raise RuntimeError(
-                "Expected 'Next steps:' output from 'arcade new'.\n" f"Output:\n{new_output}"
+                f"Expected 'Next steps:' output from 'arcade new'.\nOutput:\n{new_output}"
             )
 
         generated_root = scaffold_dir / "my_server"

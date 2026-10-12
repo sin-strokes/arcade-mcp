@@ -67,9 +67,9 @@ prevents sending fields the client's protocol version doesn't understand.
 ```python
 Icon(
     src="data:image/svg+xml;base64,...",  # or an https:// URL
-    mimeType="image/svg+xml",             # optional hint
-    sizes=["64x64", "any"],                # WHATWG icon sizes syntax
-    theme="light",                         # "light" | "dark" | absent (neutral)
+    mimeType="image/svg+xml",  # optional hint
+    sizes=["64x64", "any"],  # WHATWG icon sizes syntax
+    theme="light",  # "light" | "dark" | absent (neutral)
 )
 ```
 

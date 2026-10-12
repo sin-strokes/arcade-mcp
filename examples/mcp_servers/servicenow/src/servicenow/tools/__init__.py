@@ -8,10 +8,10 @@ from servicenow.tools.tools_incidents import (
 )
 
 __all__ = [
-    "create_incident",
-    "update_incident",
-    "search_incidents",
     "add_comment",
-    "list_my_incidents",
     "change_state",
+    "create_incident",
+    "list_my_incidents",
+    "search_incidents",
+    "update_incident",
 ]

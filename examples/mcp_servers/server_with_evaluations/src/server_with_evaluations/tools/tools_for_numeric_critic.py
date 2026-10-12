@@ -11,4 +11,4 @@ def get_n_random_numbers(
     """
     Generate a list of random numbers between 0 and 100.
     """
-    return [random.randint(0, 100) for _ in range(n)]  # noqa: S311
+    return [random.randint(0, 100) for _ in range(n)]

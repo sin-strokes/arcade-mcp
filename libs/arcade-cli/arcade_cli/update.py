@@ -159,7 +159,7 @@ def fetch_latest_pypi_version() -> str | None:
     stable, non-yanked version.
     """
     try:
-        with urlopen(PYPI_URL, timeout=5) as resp:  # noqa: S310
+        with urlopen(PYPI_URL, timeout=5) as resp:
             if resp.status != 200:
                 return None
             data = json.loads(resp.read())

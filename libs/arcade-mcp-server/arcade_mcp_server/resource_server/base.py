@@ -158,9 +158,7 @@ def _validate_resource_metadata_url(value: str) -> str:
     _validate_rfc6750_quoted_value(value)
     parsed = urllib.parse.urlsplit(value)
     if not parsed.netloc:
-        raise ValueError(
-            f"Canonical URL must have a non-empty host, got " f"empty netloc: {value!r}"
-        )
+        raise ValueError(f"Canonical URL must have a non-empty host, got empty netloc: {value!r}")
     if parsed.scheme == "https":
         pass
     elif parsed.scheme == "http":

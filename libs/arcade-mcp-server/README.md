@@ -39,10 +39,12 @@ from typing import Annotated
 
 app = MCPApp(name="my-tools", version="1.0.0")
 
+
 @app.tool
 def greet(name: Annotated[str, "Name to greet"]) -> str:
     """Greet someone by name."""
     return f"Hello, {name}!"
+
 
 if __name__ == "__main__":
     app.run()

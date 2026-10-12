@@ -106,8 +106,7 @@ def read_file(
     total_size = p.stat().st_size
     start_offset = max(0, start)
     end_offset = total_size if end <= 0 else min(end, total_size)
-    if end_offset < start_offset:
-        end_offset = start_offset
+    end_offset = max(end_offset, start_offset)
     to_read = end_offset - start_offset
     if max_bytes > 0:
         to_read = min(to_read, max_bytes)
@@ -207,7 +206,7 @@ def tail_file(
     with open(p, "rb") as f:
         pos = size
         while pos > 0 and newline_count <= lines:
-            read_size = block_size if pos >= block_size else pos
+            read_size = min(block_size, pos)
             pos -= read_size
             f.seek(pos)
             chunk = f.read(read_size)

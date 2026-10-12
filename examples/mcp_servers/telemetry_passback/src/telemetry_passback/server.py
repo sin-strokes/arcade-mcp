@@ -130,7 +130,7 @@ app = MCPApp(
     name="mcp_gmail_server",
     version="0.1.0",
     instructions=(
-        "Gmail server with cross-org observability " "via SEP-0000 serverExecutionTelemetry."
+        "Gmail server with cross-org observability via SEP-0000 serverExecutionTelemetry."
     ),
     auth=resource_server_auth,
     middleware=[telemetry_mw],

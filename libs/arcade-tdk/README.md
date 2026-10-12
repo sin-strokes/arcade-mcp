@@ -24,10 +24,12 @@ from typing import Annotated
 
 from arcade_tdk import tool
 
+
 @tool
 def hello_world(name: Annotated[str, "The name of the person to greet"]) -> str:
     """Say hello to someone."""
     return f"Hello, {name}!"
+
 
 # The tool is automatically registered and available for use
 ```

@@ -28,18 +28,13 @@ pip install 'arcade-mcp[evals]'
 from arcade_evals import EvalCase, EvalSuite, tool_eval
 
 # Create evaluation cases
-case1 = EvalCase(
-    input={"query": "What is 2+2?"},
-    expected_output="4"
-)
+case1 = EvalCase(input={"query": "What is 2+2?"}, expected_output="4")
 
-case2 = EvalCase(
-    input={"query": "What is the capital of France?"},
-    expected_output="Paris"
-)
+case2 = EvalCase(input={"query": "What is the capital of France?"}, expected_output="Paris")
 
 # Create evaluation suite
 suite = EvalSuite(cases=[case1, case2])
+
 
 # Evaluate a tool
 @tool_eval(suite)
@@ -60,8 +55,7 @@ result = numeric_critic.evaluate(expected=10.0, actual=10.05)
 # Similarity comparison
 similarity_critic = SimilarityCritic(threshold=0.8)
 result = similarity_critic.evaluate(
-    expected="The capital of France is Paris",
-    actual="Paris is the capital of France"
+    expected="The capital of France is Paris", actual="Paris is the capital of France"
 )
 ```
 
@@ -73,10 +67,7 @@ from arcade_evals import EvalRubric, ExpectedToolCall
 # Create rubric with tool calls
 rubric = EvalRubric(
     expected_tool_calls=[
-        ExpectedToolCall(
-            tool_name="calculator",
-            parameters={"operation": "add", "a": 2, "b": 2}
-        )
+        ExpectedToolCall(tool_name="calculator", parameters={"operation": "add", "a": 2, "b": 2})
     ]
 )
 
@@ -96,8 +87,8 @@ Run each case multiple times to measure consistency:
 result = await suite.run(
     client,
     model="gpt-4o",
-    num_runs=5,            # Run each case 5 times
-    seed="random",         # Different seed per run
+    num_runs=5,  # Run each case 5 times
+    seed="random",  # Different seed per run
     multi_run_pass_rule="majority",  # Pass if >50% of runs pass
 )
 ```

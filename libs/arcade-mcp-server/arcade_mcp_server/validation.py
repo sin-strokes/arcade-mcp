@@ -48,6 +48,5 @@ def _validate_schema_dialect(schema: dict[str, Any]) -> None:
     if dollar_schema in _ACCEPTED_SCHEMA_DIALECTS:
         return
     raise UnsupportedSchemaDialectError(
-        f"Unsupported JSON Schema dialect: {dollar_schema}. "
-        "Only JSON Schema 2020-12 is supported."
+        f"Unsupported JSON Schema dialect: {dollar_schema}. Only JSON Schema 2020-12 is supported."
     )
